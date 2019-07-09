@@ -7,39 +7,38 @@ namespace dictionaries
     {
         static void Main(string[] args)
         {
-            /*
-            Create a dictionary with key value pairs to
-            represent words (key) and its definition (value)
-            */
+            Dictionary<string, int> toysSold = new Dictionary<string, int>() {
+                {"Hot Wheels", 344},
+                {"Legos", 763},
+                {"Gaming Consoles", 551},
+                {"Board Games", 298}
+            };
 
-            var wordsAndDefinitions = new Dictionary<string, string>();
+            toysSold.Add("Yoyo", 342);
 
-            // Add several more words and their definitions
-            wordsAndDefinitions.Add("Awesome", "The feeling of students when they are learning C#");
-            wordsAndDefinitions.Add("Yak", "Slang for 'to steal from another'");
-            wordsAndDefinitions.Add("Bomb", "Also known colloquially as 'the best'");
-            wordsAndDefinitions.Add("Dank", "Surfer talk for 'this is dope'");
-            wordsAndDefinitions.Add("Dope", "Amazing; the state of being great");
-
-            /*
-                Use square brackets to get the definition of two of the
-                words and then output them to the console
-            */
-            Console.WriteLine(wordsAndDefinitions["Yak"]);
-            Console.WriteLine(wordsAndDefinitions["Dank"]);
-
-            /*
-                Below, loop over the wordsAndDefinitions dictionary to get the following output:
-                    The definition of (WORD) is (DEFINITION)
-                    The definition of (WORD) is (DEFINITION)
-                    The definition of (WORD) is (DEFINITION)
-            */
-
-
-            foreach (KeyValuePair<string, string> word in wordsAndDefinitions)
+            foreach (KeyValuePair<string, int> toy in toysSold)
             {
-                Console.WriteLine($"The definition of {word.Key} is {word.Value}");
-            }
+                Console.WriteLine($"The number of {toy.Key} is {toy.Value}");
+            };
+
+            Dictionary<string, int> newToys = new Dictionary<string, int>() {
+                {"Red Ryder", 210},
+                {"BB Gun", 763}
+            };
+
+            foreach (KeyValuePair<string, int> toy in newToys)
+            {
+                toysSold.Add(toy.Key, toy.Value);
+            };
+
+            Console.WriteLine("<<< After adding newToys >>>");
+            foreach (KeyValuePair<string, int> toys in toysSold)
+            {
+                Console.WriteLine($"The number of {toys.Key} is {toys.Value}");
+            };
+
+
         }
     }
 }
+
